@@ -1,188 +1,37 @@
-<!doctype html>
-<!--
-	The ad.html has a very specific format.
+<HTML>
 
-	Really there are two "ads" contained within this file.
+<HEAD>
 
-	The first ad displays to participants who are browsing
-	the Amazon Mechanical Turk site but have not yet accepted
-	your hit.
+<TITLE>Your Title Here</TITLE>
 
-	The second part of the ad display after the person selected
-	"Accept HIT" on the Amazon website.  This will reload the
-	ad and will display a button which, when clicked, will pop
-	open a new browser window pointed at your local psiTurk
-	server (assuming it is running and accessible to the Internet).
+</HEAD>
 
-	See comments throughout for hints
+<BODY BGCOLOR="FFFFFF">
 
--->
-<html>
+<CENTER><IMG SRC="clouds.jpg" ALIGN="BOTTOM"> </CENTER>
 
-<head>
-	<title>Psychology Study</title>
-	<link rel=stylesheet href="/static/css/bootstrap.min.css" type="text/css">
-	<style>
-		/* these tyles need to be defined locally */
+<HR>
 
-		body {
-			padding: 0px;
-			margin: 0px;
-			background-color: white;
-			color: black;
-			font-weight: 300;
-			font-size: 13pt;
-		}
+<a href="http://somegreatsite.com">Link Name</a>
 
-		/* ad.html  - the ad that people view first */
+is a link to another nifty site
 
-		#adlogo {
-			float: right;
-			width: 140px;
-			padding: 2px;
-			border: 1px solid #ccc;
-		}
+<H1>This is a Header</H1>
 
-		#container-ad {
-			position: absolute;
-			top: 0px;
-			/* Header Height */
-			bottom: 0px;
-			/* Footer Height */
-			left: 0px;
-			right: 0px;
-			padding: 100px;
-			padding-top: 5%;
-			border: 18px solid #f3f3f3;
-			background: white;
-		}
-	</style>
-</head>
+<H2>This is a Medium Header</H2>
 
-<body>
-	<div id="container-ad">
+Send me mail at <a href="mailto:support@yourcompany.com">
 
-		<div id="ad">
-			<div class="row">
-				<div class="col-xs-2">
-					<!-- REPLACE THE LOGO HERE WITH YOUR  UNIVERSITY, LAB, or COMPANY -->
+support@yourcompany.com</a>.
 
-				</div>
-				<div class="col-xs-10">
+<P> This is a new paragraph!
 
-					<!--
-								If assignmentid is "ASSIGNMENT_ID_NOT_AVAILABLE"
-								it means the participant has NOT accepted your hit.
-								This should display the typical advertisement about
-								your experiment: who can participate, what the
-								payment is, the time, etc...
+<P> <B>This is a new paragraph!</B>
 
-							-->
-					{% if assignmentid == "ASSIGNMENT_ID_NOT_AVAILABLE" %}
+<BR> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B>
 
-					<h1>Call for participants</h1>
-					<p>
-						Our lab is looking for online participants for a 30 minutes long psychology study. To participate, you have to be at least 18 years old and not color blind. You will be paid 1.50$ for your participation. For the completion of this study you will need
-						to have a US coin at hand.
-					</p>
-					<div class="alert alert-warning">
-						<p>This HIT is compatible only with Chrome or Firefox browsers.</p>
-					</div>
-					<div class="alert alert-danger">
-						During this study you will be presented with rapid flashes of images and shapes. These flashes may be harmful for persons who are epileptic. If you have any history of epileptic seizures, please return this HIT now, and do not proceed.
-					</div>
-					<div class="alert alert-danger">
-						<strong>This task can only be completed once.</strong> If you have already completed this task before the system will not allow you to run again. If this looks familiar please return the HIT so someone else can participate.
-					</div>
-					<p>
-						Otherwise, please click the "Accept HIT" button on the Amazon site above to begin the task.
-					</p>
+<HR>
 
+</BODY>
 
-					{% else %}
-
-					<!--
-									OTHERWISE
-									If assignmentid is NOT "ASSIGNMENT_ID_NOT_AVAILABLE"
-									it means the participant has accepted your hit.
-									You should thus show them instructions to begin the
-									experiment ... usually a button to launch a new browser
-									window pointed at your server.
-
-									It is important you do not change the code for the
-									openwindow() function below if you want you experiment
-									to work.
-								-->
-					<h1>Thank you for accepting this HIT!</h1>
-					<p>
-						Plese note: About 15% of personal computers are incompatible with this HIT, due to old hardware or overloaded set-up. Before the HIT begins, we will test for the correct display of images on your computer. If problems arise, we will ask you to return this HIT.
-					</p>
-					<p>
-						By clicking the following URL link, you will be taken to the study, including complete instructions and an informed consent agreement. Before doing so, you must confirm the following:
-					</p>
-					<p>
-						I hereby confirm that:
-						<br>
-						<input type="checkbox" id="age_checkbox" /> I am over 18 years old.
-						<br>
-						<input type="checkbox" id="color_checkbox" /> I have normal color vision.
-					</p>
-					<div class="alert alert-warning">
-						<b>Warning</b>: Please disable pop-up blockers before continuing.
-						<br> Please close all other browser windows and applications, and plug in if you're using a laptop computer. Images in this study will not display properly otherwise.
-						<br>
-						<p>
-							<input type="checkbox" id="close_windows_checkbox" /> I closed all other windows and tabs.
-						</p>
-					</div>
-					<div class="alert alert-warning">
-						Please make sure you are performing this task in a quiet room, without any distractions.
-						<br>
-						<p>
-							<input type="checkbox" id="quiet_checkbox" /> I am in a quiet environment.
-						</p>
-						<br>
-						Please put on your reading glasses if you need them.
-						<br>
-						<p>
-							<form action="" id="glasses_form">
-								<input type="radio" name="glasses" value='no_need'> I don't need reading glasses<br>
-								<input type="radio" name="glasses" value='have'> I need reading glasses and have them on<br>
-								<input type="radio" name="glasses" value = 'fail'> I need reading glasses and don't have them on
-							</form>
-						</p>
-					</div>
-
-					<button type="button" class="btn btn-primary btn-lg" onClick="openwindow();">
-								  Begin Study
-								</button> {% endif %}
-					<!--
-								endif
-							-->
-				</div>
-			</div>
-		</div>
-
-		<script>
-			function openwindow() {
-				var safari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
-				var age = document.getElementById('age_checkbox');
-				var colorvision = document.getElementById('color_checkbox');
-				var otherWin = document.getElementById('close_windows_checkbox')
-				var quiet = document.getElementById('quiet_checkbox')
-				var glasses = document.getElementsByName('glasses')[0].checked || document.getElementsByName('glasses')[1].checked
-				if (!safari) {
-					if (age.checked && colorvision.checked && otherWin.checked && quiet.checked && glasses) {
-						popup = window.open('{{ server_location }}/consent?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}', 'Popup', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=' + 1024 + ',height=' +
-							768 + '');
-					} else {
-						alert("You cannot proceed without affirming these statements. If they don't apply to you, you will not be able to participate in this experiment. Please return the HIT to Amazon.");
-					}
-				} else {
-					alert("It seems that you are using Safari as your browser. This HIT is not compatible with Safari. Please use Chrome or Firefox instead");
-				}
-			}
-		</script>
-</body>
-
-</html>
+</HTML>
