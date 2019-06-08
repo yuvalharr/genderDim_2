@@ -25,7 +25,7 @@ var ITI = 1000,
 
 /*** Male / Female condition ***/
 // Now comes from Psiturk
-// var condition = Math.round(Math.random()); // 0 is male, 1 is female. Resolved here now, later from Psiturk
+ var condition = Math.round(Math.random()); // 0 is male, 1 is female. Resolved here now, later from Psiturk or prolific
 
 /*** Enter fullscreen ***/
 var fullscreen = {
