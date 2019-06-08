@@ -46,7 +46,8 @@ var images = ['/static/images/Nickel.png',
 ];
 
 // Initiate psiturk
-var psiturk = new PsiTurk(uniqueId, adServerLoc, mode);
+// 
+// var psiturk = new PsiTurk(uniqueId, adServerLoc, mode);
 
 /*** Instructions ***/
 var preCalibInsText = [{
