@@ -38,8 +38,8 @@ var fullscreen = {
 /** 1----coin instructions**/
 
 var images = ['/static/images/Nickel.png',
-  'Code/static/images/Penny.png',
-  'Code/static/images/Dime.png',
+  '../static/images/Penny.png',
+  '../static/images/Dime.png',
   'Code/static/images/Quarter.png',
   'Code/static/images/keys.jpg',
   'Code/static/images/coin_demo.jpg'
