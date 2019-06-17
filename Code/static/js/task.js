@@ -72,7 +72,7 @@ var preCalibInsText = [{
     choices: [32]
   },
   {
-    stimulus: ["<div class='center'><img src='/static/images/coin_demo.jpg' height='400'></img>\
+    stimulus: ["<div class='center'><img src='../static/images/coin_demo.jpg' height='400'></img>\
       <p>You will be asked to position the coin\
       as shown in the picture. You will place it against your screen,\
       within an empty circle presented to you.</p>\
@@ -281,7 +281,7 @@ var instruction_text = [{
   },
   {
     stimulus: ["<div class='center'>\
-      <img src='/static/images/keys.jpg'></img>\
+      <img src='../static/images/keys.jpg'></img>\
       <p>Place your fingers on the 'D' and 'K' keys as shown in the picture, \
       and press either one of these keys to continue.</p></div>"],
     choices: [68, 75]
