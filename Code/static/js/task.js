@@ -37,12 +37,12 @@ var fullscreen = {
 
 /** 1----coin instructions**/
 
-var images = ['/static/images/Nickel.png',
+var images = ['../static/images/Nickel.png',
   '../static/images/Penny.png',
   '../static/images/Dime.png',
-  'Code/static/images/Quarter.png',
-  'Code/static/images/keys.jpg',
-  'Code/static/images/coin_demo.jpg'
+  '../static/images/Quarter.png',
+  '../static/images/keys.jpg',
+  '../static/images/coin_demo.jpg'
 ];
 
 // Initiate psiturk
