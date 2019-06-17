@@ -917,29 +917,29 @@ experiment_blocks = experiment_blocks.concat(debrief);
 // Initiate experiment
 var exp_start_time = 0;
 var d = new Date();
-// jsPsych.init({
-  // timeline: experiment_blocks,
-  // fullscreen: true,
-  // on_finish: function(data) {
-    // psiturk.recordUnstructuredData('jsPsych_trial_data',
-      // jsPsych.data.get().json());
-    // psiturk.recordUnstructuredData('jsPsych_event_data',
-      // jsPsych.data.getInteractionData().json());
-    // psiturk.saveData({
-      // success: function() {
-        // psiturk.completeHIT();
-      // }
-    // })
-  // },
+jsPsych.init({
+  timeline: experiment_blocks,
+  fullscreen: true,
+  on_finish: function(data) {
+    psiturk.recordUnstructuredData('jsPsych_trial_data',
+      jsPsych.data.get().json());
+    psiturk.recordUnstructuredData('jsPsych_event_data',
+      jsPsych.data.getInteractionData().json());
+    psiturk.saveData({
+      success: function() {
+        psiturk.completeHIT();
+      }
+    })
+  },
   // on_data_update: function(data) {
-   // psiturk.recordTrialData(data);
+  //  psiturk.recordTrialData(data);
   // },
-  // preload_images: images,
-  // on_trial_start: function() {
-    //Record start time of bRMS block
-    // if (exp_start_time == 0 && jsPsych.currentTrial().type == 'bRMS') {
-      // exp_start_time = d.getTime();
-      // psiturk.finishInstructions(); // advance status to 2
-    // }
-  // }
-// });
+  preload_images: images,
+  on_trial_start: function() {
+    // Record start time of bRMS block
+    if (exp_start_time == 0 && jsPsych.currentTrial().type == 'bRMS') {
+      exp_start_time = d.getTime();
+      psiturk.finishInstructions(); // advance status to 2
+    }
+  }
+});
