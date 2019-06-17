@@ -148,7 +148,7 @@ var calibrate_trial = {
       '" stroke="black" stroke-width="2" fill="grey" />\
   <line x1="0" y1="250" x2="1000" y2="250" style="stroke:black;stroke-width:2" />\
   <image x="' + (600 - coinSize / 2) + '" y="' + (250 - coinSize) + '" width="' + (coinSize) +
-      '" height="' + (coinSize) + '" style:"block: inline" xlink:href="/static/images/' +
+      '" height="' + (coinSize) + '" style:"block: inline" xlink:href="../static/images/' +
       whichCoin + '.png"></image>\
     <circle cx="600" cy="' + (250 - coinSize / 2) + '" r="' + coinSize / 2 +
       '" stroke="black" stroke-width="2" fill-opacity="0" />\
@@ -190,7 +190,7 @@ var makeSure = {
       '" stroke="red" stroke-width="2" fill="grey" />\
   <line x1="0" y1="250" x2="1000" y2="250" style="stroke:red;stroke-width:2" />\
   <image x="' + (600 - coinSize / 2) + '" y="' + (250 - coinSize) + '" width="' + (coinSize) +
-      '" height="' + (coinSize) + '" style:"block: inline" xlink:href="/static/images/' +
+      '" height="' + (coinSize) + '" style:"block: inline" xlink:href="../static/images/' +
       whichCoin + '.png"></image>\
     <circle cx="600" cy="' + (250 - coinSize / 2) + '" r="' + coinSize / 2 +
       '" stroke="red" stroke-width="2" fill-opacity="0" />\
