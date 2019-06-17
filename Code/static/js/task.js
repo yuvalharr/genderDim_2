@@ -122,10 +122,10 @@ var chooseCoin = {
   type: 'html-button-response',
   stimulus: 'Using the mouse, select the coin you would like to use:',
   choices: coins,
-  button_html: ['<div class="coin"><input type="image" src="/static/images/Penny.png" width="100" name="penny"></input><label for="penny" class="coin_label">Penny</label></div>',
-    '<div class="coin"><input type="image" src="/static/images/Nickel.png" width="111" name="nickel"></input><label for="nickel" class="coin_label">Nickel</label></div>',
-    '<div class="coin"><input type="image" src="/static/images/Dime.png" width="94" name="dime"></input><label for="dime" class="coin_label">Dime</label></div>',
-    '<div class="coin"><input type="image" src="/static/images/Quarter.png" width="127" name="quarter"></input><label for="quarter" class="coin_label">Quarter</label></div>'
+  button_html: ['<div class="coin"><input type="image" src="../static/images/Penny.png" width="100" name="penny"></input><label for="penny" class="coin_label">Penny</label></div>',
+    '<div class="coin"><input type="image" src="../static/images/Nickel.png" width="111" name="nickel"></input><label for="nickel" class="coin_label">Nickel</label></div>',
+    '<div class="coin"><input type="image" src="../static/images/Dime.png" width="94" name="dime"></input><label for="dime" class="coin_label">Dime</label></div>',
+    '<div class="coin"><input type="image" src="../static/images/Quarter.png" width="127" name="quarter"></input><label for="quarter" class="coin_label">Quarter</label></div>'
   ],
   on_finish: function(data) {
     whichCoin = coins[data.button_pressed];
