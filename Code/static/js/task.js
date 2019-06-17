@@ -931,12 +931,12 @@ var d = new Date();
       // }
     // })
   // },
-  on_data_update: function(data) {
-   psiturk.recordTrialData(data);
-  },
+  // on_data_update: function(data) {
+   // psiturk.recordTrialData(data);
+  // },
   // preload_images: images,
   // on_trial_start: function() {
-    Record start time of bRMS block
+    //Record start time of bRMS block
     // if (exp_start_time == 0 && jsPsych.currentTrial().type == 'bRMS') {
       // exp_start_time = d.getTime();
       // psiturk.finishInstructions(); // advance status to 2
