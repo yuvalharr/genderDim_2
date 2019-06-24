@@ -26,6 +26,7 @@ var ITI = 1000,
 /*** Male / Female condition ***/
 // Now comes from Psiturk
  var condition = Math.round(Math.random()); // 0 is male, 1 is female. Resolved here now, later from Psiturk or prolific
+ var uniqueid = jsPsych.randomization.randomID(15);
 
 /*** Enter fullscreen ***/
 var fullscreen = {
@@ -328,7 +329,8 @@ for (i = 0; i < train_repetitions; i++) {
       fade_out_time: fade_out_time,
       fade_in_time: fade_in_time,
       fade_out_length: fade_out_length,
-      stimulus_alpha: train_alpha
+      stimulus_alpha: train_alpha,
+	  subject_id: uniqueid	  
     },
     timing_response: trialLength,
     fade_out_time: fade_out_time,
