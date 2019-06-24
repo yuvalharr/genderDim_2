@@ -935,11 +935,11 @@ jsPsych.init({
   //  psiturk.recordTrialData(data);
   // },
   preload_images: images,
-  // on_trial_start: function() {
-    // // Record start time of bRMS block
-    // if (exp_start_time == 0 && jsPsych.currentTrial().type == 'bRMS') {
-      // exp_start_time = d.getTime();
+   on_trial_start: function() {
+     // Record start time of bRMS block
+     if (exp_start_time == 0 && jsPsych.currentTrial().type == 'bRMS') {
+       exp_start_time = d.getTime();
       // psiturk.finishInstructions(); // advance status to 2
-    // }
-  // }
+     }
+   }
 });
