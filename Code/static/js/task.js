@@ -246,40 +246,40 @@ var instruction_text = [{
     <p align='center'><i>Press the space bar to continue.</i></p>"],
     choices: [32]
   },
-  {
-    stimulus: ["<div class = 'center'><p>You will be presented with rapidly \
-      changing patterns of rectangles. Through these rectangles, " +
-      gender +
-      " faces will appear. Your task will be to indicate the location of \
-      the faces, or any part of them, as soon as they appear.</p>\
-      <p align='center'><i>Press the space bar to continue.</i></p></div>"
-    ],
-    choices: [32]
-  },
-  {
-    stimulus: ["<div class = 'center'><p>If a " +
-      person + "'s face appeared in the right half \
-      of the screen, press the right key. If a " +
-      person + "'s face appeared in the left half \
-      of the screen, press the left key.</p>\
-      <p align='center'><i>Press the space bar to continue.</i></p></div>"
-    ],
-    choices: [32]
-  },
-  {
-    stimulus: ["<div class = 'center'><p>Please perform this task as accurately \
-      and quickly as you can.</p>\
-      <p align='center'><i>Press the space bar to continue.</i></p></div>"],
-    choices: [32]
-  },
-  {
-    stimulus: ["<div class = 'center'><p>During the task, please focus your gaze at\
-       the plus sign in the middle.<br>Even though the faces appear to the left\
-        and right of the plus sign, it is important that you look at the plus \
-        sign at all times.</p>\
-        <p align='center'></i>Press the space bar to continue.</i></p></div>"],
-    choices: [32]
-  },
+  // {
+    // stimulus: ["<div class = 'center'><p>You will be presented with rapidly \
+      // changing patterns of rectangles. Through these rectangles, " +
+      // gender +
+      // " faces will appear. Your task will be to indicate the location of \
+      // the faces, or any part of them, as soon as they appear.</p>\
+      // <p align='center'><i>Press the space bar to continue.</i></p></div>"
+    // ],
+    // choices: [32]
+  // },
+  // {
+    // stimulus: ["<div class = 'center'><p>If a " +
+      // person + "'s face appeared in the right half \
+      // of the screen, press the right key. If a " +
+      // person + "'s face appeared in the left half \
+      // of the screen, press the left key.</p>\
+      // <p align='center'><i>Press the space bar to continue.</i></p></div>"
+    // ],
+    // choices: [32]
+  // },
+  // {
+    // stimulus: ["<div class = 'center'><p>Please perform this task as accurately \
+      // and quickly as you can.</p>\
+      // <p align='center'><i>Press the space bar to continue.</i></p></div>"],
+    // choices: [32]
+  // },
+  // {
+    // stimulus: ["<div class = 'center'><p>During the task, please focus your gaze at\
+       // the plus sign in the middle.<br>Even though the faces appear to the left\
+        // and right of the plus sign, it is important that you look at the plus \
+        // sign at all times.</p>\
+        // <p align='center'></i>Press the space bar to continue.</i></p></div>"],
+    // choices: [32]
+  // },
   {
     stimulus: ["<div class='center'>\
       <img src='../static/images/keys.jpg'></img>\
@@ -388,13 +388,7 @@ var performanceMSG_practice = {
     choices: [32],
 
     //** needed eventualy **//
-    on_finish: function() {
-      psiturk.saveData({
-        success: function() {
-          jsPsych.endExperiment('The experiment has been aborted. Please return HIT.');
-        }
-      });
-    },
+    on_finish: jsPsych.endExperiment('The experiment has been aborted. Please return HIT.');,
   }
 
 
@@ -639,224 +633,224 @@ var debrief = [{
     we remind you that your answers are completely annonymous.</p>\
     <p align='center'><i>Press the space bar to continue.</i></p></div>",
     choices: [32]
-  },
-  {
-    type: "survey-text",
-    questions: [{
-        prompt: "How old are you?",
-        columns: 20,
-        rows: 1,
-        value: ''
-      },
-      {
-        prompt: 'Have you been diagnosed with, or believe you have an attention deficit disorder?',
-        columns: 60,
-        rows: 1,
-        value: ''
-      }
-    ]
-  }, {
-    type: "survey-multi-choice",
-    questions: [{
-        prompt: "What is your gender?",
-        options: ["Male", "Female", "Other"],
-        required: true
-      },
-      {
-        prompt: "What is your dominant hand?",
-        options: ["Right", "Left", "Both"],
-        required: true
-      },
-      {
-        prompt: "Is English your native language?",
-        options: ["Yes", "No"],
-        required: true
-      }
-    ]
-  },
-  {
-    type: 'survey-likert',
-    questions: [{
-      prompt: "How fluent are you in reading and understanding English?",
-      labels: ["1<br>Not at all", "2", "3", "4", "5<br>Very fluent"],
-      required: true
-    }]
-  },
-  {
-    type: 'survey-text',
-    questions: [{
-      prompt: "Did you have any special strategy that helped you seeing \
-    the faces more quickly?",
-      columns: 100,
-      rows: 4,
-      value: ''
-    }],
-  },
-  {
-    type: 'survey-multi-choice',
-    questions: [{
-        prompt: "Do you consider yourself to be:",
-        options: ["Heterosexual or straight", "Gay or lesbian", "Bisexual", "Other"],
-        required: false
-      },
-      {
-        prompt: "People are different in their sexual attraction to other people.\
-  Which best describes your feelings?",
-        options: ["Only attracted to females", "Mostly attracted to females",
-          "Equally attracted to females and males", "Mostly attracted to males", "Only attracted to males", "Not sure"
-        ],
-        required: false
-      }
-    ]
-  },
-  {
-    type: "html-keyboard-response",
-    stimulus: "<div class='center'><p>You will now be presented with a few more statements.\
-	Please read each statement carfully, and indicate the degree to which you agree or disagree with it.</p>\
-    <p>We remind you that your answers are completely annonymous.</p>\
-    <p align='center'><i>Press the space bar to continue.</i></p></div>",
-    choices: [32]
-  }
-].concat(jsPsych.randomization.shuffle(
-  [{
-      type: 'survey-likert',
-      questions: [{
-        prompt: "Laws designed to protect the environment pose too high a cost on businesses that contribute to the economy.",
-        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        required: true
-      }],
-      data: {
-        question: 'Environment laws',
-        reverse: false
-      }
-    },
-    {
-      type: 'survey-likert',
-      questions: [{
-        prompt: "A woman should have the right to choose what to do with her body, even if that means getting an abortion.", //*reverse scored
-        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        required: true
-      }],
-      data: {
-        question: 'Abortion',
-        reverse: true
-      }
-    },
-    {
-      type: 'survey-likert',
-      questions: [{
-        prompt: "The United States should not have invaded Iraq.", //*reverse scored
-        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        required: true
-      }],
-      data: {
-        question: 'Iraq',
-        reverse: true
-      }
-    },
-    {
-      type: 'survey-likert',
-      questions: [{
-        prompt: "Homosexuals should have the same right to marriage as anyone else.", //*reverse scored
-        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        required: true
-      }],
-      data: {
-        question: 'Homosexuals',
-        reverse: true
-      }
-    },
-    {
-      type: 'survey-likert',
-      questions: [{
-        prompt: "Affirmative action gives those groups with a history of oppression a chance to get ahead.", //*reverse scored
-        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        required: true
-      }],
-      data: {
-        question: 'Affirmative action',
-        reverse: true
-      }
-    },
-    {
-      type: 'survey-likert',
-      questions: [{
-        prompt: "Gun control laws are not nearly strict enough.", //*reverse scored
-        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        required: true
-      }],
-      data: {
-        question: 'Gun control',
-        reverse: true
-      }
-    },
-    {
-      type: 'survey-likert',
-      questions: [{
-        prompt: "It is important for our legal system to use the death penalty as punishment for heinous crimes. ",
-        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        required: true}],
-        data: {
-          question: 'Death penalty',
-          reverse: false
-        }
-    },
-    {
-      type: 'survey-likert',
-      questions: [{
-        prompt: "Stem Cell research has important implications for medical advances, and should be pursued at all costs.", //*reverse scored
-        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        required: true}],
-        data: {
-          question: 'Stem Cell',
-          reverse: true
-        }
-    }
-  ])).concat([{
-    type: "survey-multi-choice",
-    questions: [{
-      prompt: "Do you have a driver’s license?",
-      options: ["Yes", "No"],
-      required: true
-    }]
-  },
-  {
-    conditional_function: function() {
-      if (JSON.parse(jsPsych.data.get().last(1).select('responses').values).Q0 == 'Yes') {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    timeline: [{
-        type: 'survey-likert',
-        questions: [{
-          prompt: "Compared to the average driver, how would you rate your own driving?", //*reverse scored
-          labels: ["1<br>Much worse than average", "2", "3", "4", "5", "6", "7<br>Much better than average"],
-          required: true
-        }]
-      },
-      {
-        type: "survey-text",
-        questions: [{
-          prompt: "In your best estimate, how many accidents were you involved in during the last three years as a driver, including minor accidents with no injuries or damage? (If none, mark 0)",
-          columns: 20,
-          rows: 1,
-          value: ''
-        }],
-      }
-    ],
-  },
-  {
-    type: "survey-text",
-    questions: [{
-      prompt: 'In your best estimate, how many accidents were you involved in during the last three years as a pedestrian,\
-		including minor accidents with no injuries or damage? (If none, mark 0)',
-      columns: 60,
-      rows: 1,
-      value: ''
-    }]
-  },
+   },
+  // {
+    // type: "survey-text",
+    // questions: [{
+        // prompt: "How old are you?",
+        // columns: 20,
+        // rows: 1,
+        // value: ''
+      // },
+      // {
+        // prompt: 'Have you been diagnosed with, or believe you have an attention deficit disorder?',
+        // columns: 60,
+        // rows: 1,
+        // value: ''
+      // }
+    // ]
+  // }, {
+    // type: "survey-multi-choice",
+    // questions: [{
+        // prompt: "What is your gender?",
+        // options: ["Male", "Female", "Other"],
+        // required: true
+      // },
+      // {
+        // prompt: "What is your dominant hand?",
+        // options: ["Right", "Left", "Both"],
+        // required: true
+      // },
+      // {
+        // prompt: "Is English your native language?",
+        // options: ["Yes", "No"],
+        // required: true
+      // }
+    // ]
+  // },
+  // {
+    // type: 'survey-likert',
+    // questions: [{
+      // prompt: "How fluent are you in reading and understanding English?",
+      // labels: ["1<br>Not at all", "2", "3", "4", "5<br>Very fluent"],
+      // required: true
+    // }]
+  // },
+  // {
+    // type: 'survey-text',
+    // questions: [{
+      // prompt: "Did you have any special strategy that helped you seeing \
+    // the faces more quickly?",
+      // columns: 100,
+      // rows: 4,
+      // value: ''
+    // }],
+  // },
+  // {
+    // type: 'survey-multi-choice',
+    // questions: [{
+        // prompt: "Do you consider yourself to be:",
+        // options: ["Heterosexual or straight", "Gay or lesbian", "Bisexual", "Other"],
+        // required: false
+      // },
+      // {
+        // prompt: "People are different in their sexual attraction to other people.\
+  // Which best describes your feelings?",
+        // options: ["Only attracted to females", "Mostly attracted to females",
+          // "Equally attracted to females and males", "Mostly attracted to males", "Only attracted to males", "Not sure"
+        // ],
+        // required: false
+      // }
+    // ]
+  // },
+  // {
+    // type: "html-keyboard-response",
+    // stimulus: "<div class='center'><p>You will now be presented with a few more statements.\
+	// Please read each statement carfully, and indicate the degree to which you agree or disagree with it.</p>\
+    // <p>We remind you that your answers are completely annonymous.</p>\
+    // <p align='center'><i>Press the space bar to continue.</i></p></div>",
+    // choices: [32]
+  // }
+// ].concat(jsPsych.randomization.shuffle(
+  // [{
+      // type: 'survey-likert',
+      // questions: [{
+        // prompt: "Laws designed to protect the environment pose too high a cost on businesses that contribute to the economy.",
+        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        // required: true
+      // }],
+      // data: {
+        // question: 'Environment laws',
+        // reverse: false
+      // }
+    // },
+    // {
+      // type: 'survey-likert',
+      // questions: [{
+        // prompt: "A woman should have the right to choose what to do with her body, even if that means getting an abortion.", //*reverse scored
+        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        // required: true
+      // }],
+      // data: {
+        // question: 'Abortion',
+        // reverse: true
+      // }
+    // },
+    // {
+      // type: 'survey-likert',
+      // questions: [{
+        // prompt: "The United States should not have invaded Iraq.", //*reverse scored
+        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        // required: true
+      // }],
+      // data: {
+        // question: 'Iraq',
+        // reverse: true
+      // }
+    // },
+    // {
+      // type: 'survey-likert',
+      // questions: [{
+        // prompt: "Homosexuals should have the same right to marriage as anyone else.", //*reverse scored
+        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        // required: true
+      // }],
+      // data: {
+        // question: 'Homosexuals',
+        // reverse: true
+      // }
+    // },
+    // {
+      // type: 'survey-likert',
+      // questions: [{
+        // prompt: "Affirmative action gives those groups with a history of oppression a chance to get ahead.", //*reverse scored
+        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        // required: true
+      // }],
+      // data: {
+        // question: 'Affirmative action',
+        // reverse: true
+      // }
+    // },
+    // {
+      // type: 'survey-likert',
+      // questions: [{
+        // prompt: "Gun control laws are not nearly strict enough.", //*reverse scored
+        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        // required: true
+      // }],
+      // data: {
+        // question: 'Gun control',
+        // reverse: true
+      // }
+    // },
+    // {
+      // type: 'survey-likert',
+      // questions: [{
+        // prompt: "It is important for our legal system to use the death penalty as punishment for heinous crimes. ",
+        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        // required: true}],
+        // data: {
+          // question: 'Death penalty',
+          // reverse: false
+        // }
+    // },
+    // {
+      // type: 'survey-likert',
+      // questions: [{
+        // prompt: "Stem Cell research has important implications for medical advances, and should be pursued at all costs.", //*reverse scored
+        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        // required: true}],
+        // data: {
+          // question: 'Stem Cell',
+          // reverse: true
+        // }
+    // }
+  // ])).concat([{
+    // type: "survey-multi-choice",
+    // questions: [{
+      // prompt: "Do you have a driver’s license?",
+      // options: ["Yes", "No"],
+      // required: true
+    // }]
+  // },
+  // {
+    // conditional_function: function() {
+      // if (JSON.parse(jsPsych.data.get().last(1).select('responses').values).Q0 == 'Yes') {
+        // return true;
+      // } else {
+        // return false;
+      // }
+    // },
+    // timeline: [{
+        // type: 'survey-likert',
+        // questions: [{
+          // prompt: "Compared to the average driver, how would you rate your own driving?", //*reverse scored
+          // labels: ["1<br>Much worse than average", "2", "3", "4", "5", "6", "7<br>Much better than average"],
+          // required: true
+        // }]
+      // },
+      // {
+        // type: "survey-text",
+        // questions: [{
+          // prompt: "In your best estimate, how many accidents were you involved in during the last three years as a driver, including minor accidents with no injuries or damage? (If none, mark 0)",
+          // columns: 20,
+          // rows: 1,
+          // value: ''
+        // }],
+      // }
+    // ],
+  // },
+  // {
+    // type: "survey-text",
+    // questions: [{
+      // prompt: 'In your best estimate, how many accidents were you involved in during the last three years as a pedestrian,\
+		// including minor accidents with no injuries or damage? (If none, mark 0)',
+      // columns: 60,
+      // rows: 1,
+      // value: ''
+    // }]
+  // },
   {
     type: "html-keyboard-response",
     stimulus: '<div class="center">Thank you for participating in this study!<p>\
@@ -917,24 +911,24 @@ var saveData = function(data, filename) {
   });
 }
 
-<<<<<<< HEAD
+
 
 =======
 // new saveData function (php) -- YH
-function saveData(name, data){
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({filename: name, filedata: data}));
-}
+// function saveData(name, data){
+  // var xhr = new XMLHttpRequest();
+  // xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+  // xhr.setRequestHeader('Content-Type', 'application/json');
+  // xhr.send(JSON.stringify({filename: name, filedata: data}));
+// }
 //
 // call the saveData function after the experiment is over -- YH
-jsPsych.init({
+// jsPsych.init({
    // code to define the experiment structure would go here...
-   on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
-});
+//   on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
+// });
 //
->>>>>>> parent of 772e3ce... Update task.js
+
 
 // Initiate experiment
 var exp_start_time = 0;
