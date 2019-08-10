@@ -918,7 +918,6 @@ var saveData = function(data, filename) {
 }
 
 
-
 // Initiate experiment
 var exp_start_time = 0;
 var d = new Date();
