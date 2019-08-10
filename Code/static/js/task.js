@@ -903,7 +903,7 @@ var textFile = null,
     return textFile;
   };
 
-var saveData = function(data, filename) {
+var saveData_1 = function(data, filename) {
   var link = document.createElement('a');
   link.setAttribute('download', filename);
   link.href = makeTextFile(data);
@@ -917,6 +917,20 @@ var saveData = function(data, filename) {
   });
 }
 
+// new saveData function (php) -- YH
+function saveData(name, data){
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({filename: name, filedata: data}));
+}
+//
+// call the saveData function after the experiment is over -- YH
+jsPsych.init({
+   // code to define the experiment structure would go here...
+   on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
+});
+//
 
 // Initiate experiment
 var exp_start_time = 0;
