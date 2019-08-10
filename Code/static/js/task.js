@@ -388,7 +388,9 @@ var performanceMSG_practice = {
     choices: [32],
 
     //** needed eventualy **//
-    on_finish: jsPsych.endExperiment('The experiment has been aborted. Please return HIT.')
+     on_finish: function() {
+          jsPsych.endExperiment('The experiment has been aborted. <b>Please return HIT.</b>');
+        }
   }
 
 
