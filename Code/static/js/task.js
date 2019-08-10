@@ -916,7 +916,7 @@ var saveData = function(data, filename) {
 
 
 
-//new saveData function (php) -- YH
+new saveData function (php) -- YH
 function saveData(name, data){
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
@@ -924,7 +924,7 @@ function saveData(name, data){
   xhr.send(JSON.stringify({filename: name, filedata: data}));
 }
 
-//call the saveData function after the experiment is over -- YH
+call the saveData function after the experiment is over -- YH
 jsPsych.init({
    code to define the experiment structure would go here...
   on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
