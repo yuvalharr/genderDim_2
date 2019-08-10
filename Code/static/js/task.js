@@ -926,10 +926,10 @@ function saveData(name, data){
 }
 //
 // call the saveData function after the experiment is over -- YH
-jsPsych.init({
+//jsPsych.init({
    // code to define the experiment structure would go here...
-   on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
-});
+  // on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); }
+//});
 //
 
 // Initiate experiment
