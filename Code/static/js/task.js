@@ -904,7 +904,7 @@ var textFile = null,
   };
 
 var saveData = function(data, filename) {
-  var link = document.createElement('expData');
+  var link = document.createElement('a');
   link.setAttribute('download', filename);
   link.href = makeTextFile(data);
   document.body.appendChild(link);
@@ -916,7 +916,6 @@ var saveData = function(data, filename) {
     document.body.removeChild(link);
   });
 }
-
 
 // Initiate experiment
 var exp_start_time = 0;
