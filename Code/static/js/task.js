@@ -918,13 +918,19 @@ var saveData = function(data, filename) {
 }
 
 // Initiate experiment
+function saveData(name, data){
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({filename: name, filedata: data}));
+}
+
 var exp_start_time = 0;
 var d = new Date();
 jsPsych.init({
   timeline: experiment_blocks,
   fullscreen: true,
-   on_finish: function(){
-	   saveData(jsPsych.data.get().json(), "datadata"); },
+   on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); },
   // on_data_update: function(data) {
   //  psiturk.recordTrialData(data);
   // },
