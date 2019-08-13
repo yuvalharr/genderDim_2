@@ -903,19 +903,19 @@ var textFile = null,
     return textFile;
   };
 
-var saveData = function(data, filename) {
-  var link = document.createElement('a');
-  link.setAttribute('download', filename);
-  link.href = makeTextFile(data);
-  document.body.appendChild(link);
+// var saveData = function(data, filename) {
+  // var link = document.createElement('a');
+  // link.setAttribute('download', filename);
+  // link.href = makeTextFile(data);
+  // document.body.appendChild(link);
 
-  // wait for the link to be added to the document
-  window.requestAnimationFrame(function() {
-    var event = new MouseEvent('click');
-    link.dispatchEvent(event);
-    document.body.removeChild(link);
-  });
-}
+ // // wait for the link to be added to the document
+  // window.requestAnimationFrame(function() {
+    // var event = new MouseEvent('click');
+    // link.dispatchEvent(event);
+    // document.body.removeChild(link);
+  // });
+// }
 
 // Initiate experiment
 function saveData(name, data){
