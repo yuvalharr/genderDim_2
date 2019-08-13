@@ -904,7 +904,7 @@ var textFile = null,
   };
 
 var saveData = function(data, filename) {
-  var link = document.createElement('exp data');
+  var link = document.createElement('expData');
   link.setAttribute('download', filename);
   link.href = makeTextFile(data);
   document.body.appendChild(link);
