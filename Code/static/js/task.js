@@ -4,10 +4,10 @@ var ITI = 1000,
   stimAlphas = 0.4,
   unitSize = 4,
   breakEvery = 50,
-  exp_num_faces = 3, // number of different faces to use per experiment  *yuval
-  repetitions = 1, // number of repetitions of each face   *yuval
+  exp_num_faces = 8, // number of different faces to use per experiment  *yuval
+  repetitions = 4, // number of repetitions of each face   *yuval
   total_num_faces = 300, // total number of faces in the database (e.g 300- for one gender only) (images file) *yuval
-  train_repetitions = 1,
+  train_repetitions = 3,
   train_alpha = 0.4,
   trialLength = 0, // 0 is no limit
   fade_in_time = 1,
@@ -57,50 +57,50 @@ var preCalibInsText = [{
     <p>Please read the instructions carefully.</p>\
     <p align='center'><i>Press the space bar to continue.</i></p></div>"],
     choices: [32]
-  }//,
-  // {
-    // stimulus: ["<div class='center'><p>We will begin by calibrating the experiment \
-      // for the size of your screen.</p>\
-      // <p>After this short calibration, we will continue to the main task for \
-      // this study.</p>\
-      // <p align='center'><i>Press the space bar to continue.</i></p></div>"],
-    // choices: [32]
-  // },
-  // {
-    // stimulus: ["<div class='center'><p>For the calibration stage, you will need a coin.</p>\
-      // <p>Any US coin will do.</p>\
-      // <p align='center'><i>Press the space bar to continue.</i></p></div>"],
-    // choices: [32]
-  // },
-  // {
-    // stimulus: ["<div class='center'><img src='../static/images/coin_demo.jpg' height='400'></img>\
-      // <p>You will be asked to position the coin\
-      // as shown in the picture. You will place it against your screen,\
-      // within an empty circle presented to you.</p>\
-      // <p align='center'><i>Press the space bar to continue.</i></p></div>"],
-    // choices: [32]
-  // },
-  // {
-    // stimulus: ["<div class='center'><p>Using the up and down arrow keys, \
-      // you will then adjust the size of the empty circle, so that it matches the \
-      // size of your coin.</p>\
-      // <p align='center'><i>Press the space bar to continue.</i></p></div>"],
-    // choices: [32]
-  // },
-  // {
-    // stimulus: ["<div class='center'><p>Take your time in doing so, as this measurement\
-      // will be used throughout the study to make sure images are presented to \
-      // you in their correct size.</p>\
-      // <p>When you are done adjusting the circle size, press the space bar to \
-      // continue to the main task.\
-      // <p align='center'><i>Press the space bar to continue.</i></p></div>"],
-    // choices: [32]
-  // },
-  // {
-    // stimulus: ["<div class='center'><p>Please have a coin at hand.</p>\
-      // <p>Press the space bar to start the calibration stage.</p></div>"],
-    // choices: [32]
-  // }
+  },
+  {
+    stimulus: ["<div class='center'><p>We will begin by calibrating the experiment \
+      for the size of your screen.</p>\
+      <p>After this short calibration, we will continue to the main task for \
+      this study.</p>\
+      <p align='center'><i>Press the space bar to continue.</i></p></div>"],
+    choices: [32]
+  },
+  {
+    stimulus: ["<div class='center'><p>For the calibration stage, you will need a coin.</p>\
+      <p>Any US coin will do.</p>\
+      <p align='center'><i>Press the space bar to continue.</i></p></div>"],
+    choices: [32]
+  },
+  {
+    stimulus: ["<div class='center'><img src='../static/images/coin_demo.jpg' height='400'></img>\
+      <p>You will be asked to position the coin\
+      as shown in the picture. You will place it against your screen,\
+      within an empty circle presented to you.</p>\
+      <p align='center'><i>Press the space bar to continue.</i></p></div>"],
+    choices: [32]
+  },
+  {
+    stimulus: ["<div class='center'><p>Using the up and down arrow keys, \
+      you will then adjust the size of the empty circle, so that it matches the \
+      size of your coin.</p>\
+      <p align='center'><i>Press the space bar to continue.</i></p></div>"],
+    choices: [32]
+  },
+  {
+    stimulus: ["<div class='center'><p>Take your time in doing so, as this measurement\
+      will be used throughout the study to make sure images are presented to \
+      you in their correct size.</p>\
+      <p>When you are done adjusting the circle size, press the space bar to \
+      continue to the main task.\
+      <p align='center'><i>Press the space bar to continue.</i></p></div>"],
+    choices: [32]
+  },
+  {
+    stimulus: ["<div class='center'><p>Please have a coin at hand.</p>\
+      <p>Press the space bar to start the calibration stage.</p></div>"],
+    choices: [32]
+  }
 ];
 
 var preCalibIns = {
@@ -245,48 +245,48 @@ var instruction_text = [{
     stimulus: ["<p>We will now continue to the main task.</p>\
     <p align='center'><i>Press the space bar to continue.</i></p>"],
     choices: [32]
-  }//,
-  // {
-    // stimulus: ["<div class = 'center'><p>You will be presented with rapidly \
-      // changing patterns of rectangles. Through these rectangles, " +
-      // gender +
-      // " faces will appear. Your task will be to indicate the location of \
-      // the faces, or any part of them, as soon as they appear.</p>\
-      // <p align='center'><i>Press the space bar to continue.</i></p></div>"
-    // ],
-    // choices: [32]
-  // },
-  // {
-    // stimulus: ["<div class = 'center'><p>If a " +
-      // person + "'s face appeared in the right half \
-      // of the screen, press the right key. If a " +
-      // person + "'s face appeared in the left half \
-      // of the screen, press the left key.</p>\
-      // <p align='center'><i>Press the space bar to continue.</i></p></div>"
-    // ],
-    // choices: [32]
-  // },
-  // {
-    // stimulus: ["<div class = 'center'><p>Please perform this task as accurately \
-      // and quickly as you can.</p>\
-      // <p align='center'><i>Press the space bar to continue.</i></p></div>"],
-    // choices: [32]
-  // },
-  // {
-    // stimulus: ["<div class = 'center'><p>During the task, please focus your gaze at\
-       // the plus sign in the middle.<br>Even though the faces appear to the left\
-        // and right of the plus sign, it is important that you look at the plus \
-        // sign at all times.</p>\
-        // <p align='center'></i>Press the space bar to continue.</i></p></div>"],
-    // choices: [32]
-  // },
-  // {
-    // stimulus: ["<div class='center'>\
-      // <img src='../static/images/keys.jpg'></img>\
-      // <p>Place your fingers on the 'D' and 'K' keys as shown in the picture, \
-      // and press either one of these keys to continue.</p></div>"],
-    // choices: [68, 75]
-  // }
+  },
+  {
+    stimulus: ["<div class = 'center'><p>You will be presented with rapidly \
+      changing patterns of rectangles. Through these rectangles, " +
+      gender +
+      " faces will appear. Your task will be to indicate the location of \
+      the faces, or any part of them, as soon as they appear.</p>\
+      <p align='center'><i>Press the space bar to continue.</i></p></div>"
+    ],
+    choices: [32]
+  },
+  {
+    stimulus: ["<div class = 'center'><p>If a " +
+      person + "'s face appeared in the right half \
+      of the screen, press the right key. If a " +
+      person + "'s face appeared in the left half \
+      of the screen, press the left key.</p>\
+      <p align='center'><i>Press the space bar to continue.</i></p></div>"
+    ],
+    choices: [32]
+  },
+  {
+    stimulus: ["<div class = 'center'><p>Please perform this task as accurately \
+      and quickly as you can.</p>\
+      <p align='center'><i>Press the space bar to continue.</i></p></div>"],
+    choices: [32]
+  },
+  {
+    stimulus: ["<div class = 'center'><p>During the task, please focus your gaze at\
+       the plus sign in the middle.<br>Even though the faces appear to the left\
+        and right of the plus sign, it is important that you look at the plus \
+        sign at all times.</p>\
+        <p align='center'></i>Press the space bar to continue.</i></p></div>"],
+    choices: [32]
+  },
+  {
+    stimulus: ["<div class='center'>\
+      <img src='../static/images/keys.jpg'></img>\
+      <p>Place your fingers on the 'D' and 'K' keys as shown in the picture, \
+      and press either one of these keys to continue.</p></div>"],
+    choices: [68, 75]
+  }
 ];
 
 var instructions = {
@@ -730,77 +730,77 @@ var debrief = [{
         reverse: false
       }
     },
-    // {
-      // type: 'survey-likert',
-      // questions: [{
-        // prompt: "A woman should have the right to choose what to do with her body, even if that means getting an abortion.", //*reverse scored
-        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        // required: true
-      // }],
-      // data: {
-        // question: 'Abortion',
-        // reverse: true
-      // }
-    // },
-    // {
-      // type: 'survey-likert',
-      // questions: [{
-        // prompt: "The United States should not have invaded Iraq.", //*reverse scored
-        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        // required: true
-      // }],
-      // data: {
-        // question: 'Iraq',
-        // reverse: true
-      // }
-    // },
-    // {
-      // type: 'survey-likert',
-      // questions: [{
-        // prompt: "Homosexuals should have the same right to marriage as anyone else.", //*reverse scored
-        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        // required: true
-      // }],
-      // data: {
-        // question: 'Homosexuals',
-        // reverse: true
-      // }
-    // },
-    // {
-      // type: 'survey-likert',
-      // questions: [{
-        // prompt: "Affirmative action gives those groups with a history of oppression a chance to get ahead.", //*reverse scored
-        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        // required: true
-      // }],
-      // data: {
-        // question: 'Affirmative action',
-        // reverse: true
-      // }
-    // },
-    // {
-      // type: 'survey-likert',
-      // questions: [{
-        // prompt: "Gun control laws are not nearly strict enough.", //*reverse scored
-        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        // required: true
-      // }],
-      // data: {
-        // question: 'Gun control',
-        // reverse: true
-      // }
-    // },
-    // {
-      // type: 'survey-likert',
-      // questions: [{
-        // prompt: "It is important for our legal system to use the death penalty as punishment for heinous crimes. ",
-        // labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
-        // required: true}],
-        // data: {
-          // question: 'Death penalty',
-          // reverse: false
-        // }
-    // },
+    {
+      type: 'survey-likert',
+      questions: [{
+        prompt: "A woman should have the right to choose what to do with her body, even if that means getting an abortion.", //*reverse scored
+        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        required: true
+      }],
+      data: {
+        question: 'Abortion',
+        reverse: true
+      }
+    },
+    {
+      type: 'survey-likert',
+      questions: [{
+        prompt: "The United States should not have invaded Iraq.", //*reverse scored
+        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        required: true
+      }],
+      data: {
+        question: 'Iraq',
+        reverse: true
+      }
+    },
+    {
+      type: 'survey-likert',
+      questions: [{
+        prompt: "Homosexuals should have the same right to marriage as anyone else.", //*reverse scored
+        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        required: true
+      }],
+      data: {
+        question: 'Homosexuals',
+        reverse: true
+      }
+    },
+    {
+      type: 'survey-likert',
+      questions: [{
+        prompt: "Affirmative action gives those groups with a history of oppression a chance to get ahead.", //*reverse scored
+        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        required: true
+      }],
+      data: {
+        question: 'Affirmative action',
+        reverse: true
+      }
+    },
+    {
+      type: 'survey-likert',
+      questions: [{
+        prompt: "Gun control laws are not nearly strict enough.", //*reverse scored
+        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        required: true
+      }],
+      data: {
+        question: 'Gun control',
+        reverse: true
+      }
+    },
+    {
+      type: 'survey-likert',
+      questions: [{
+        prompt: "It is important for our legal system to use the death penalty as punishment for heinous crimes. ",
+        labels: ["1<br>Completely Disagree", "2", "3", "4", "5", "6", "7<br>Completely Agree"],
+        required: true}],
+        data: {
+          question: 'Death penalty',
+          reverse: false
+        }
+    },
     {
       type: 'survey-likert',
       questions: [{
@@ -925,7 +925,7 @@ jsPsych.init({
   timeline: experiment_blocks,
   fullscreen: true,
    on_finish: function(){
-	   saveData(jsPsych.data.get().json(), "datadata"); },
+	   saveData(jsPsych.data.get().csv(), "data_file"); },
   // on_data_update: function(data) {
   //  psiturk.recordTrialData(data);
   // },
