@@ -28,6 +28,12 @@ var ITI = 1000,
  var condition = Math.round(Math.random()); // 0 is male, 1 is female. Resolved here now, later from Psiturk or prolific
  var uniqueid = jsPsych.randomization.randomID(15);
 
+var trial = {
+    type: 'image-button-response',
+    choices: ['Happy', 'Sad'],
+    prompt: "<p>Is this person happy or sad?</p>"
+};
+
 /*** Enter fullscreen ***/
 var fullscreen = {
   type: 'fullscreen',
@@ -630,20 +636,6 @@ yaniv.abir+mturk@mail.huji.ac.il</p>\
     }
   }
   
-//*** trying to get unique id from participants themselves ***//
-
-var getGender = [{
-	type: "survey-multi-choice",
-    questions: [{
-        prompt: "What is your gender?",
-        options: ["Male", "Female", "Other"],
-        required: true
-      }]
-   }]
-
-
-
-
 
 
 //** 7---------Debrief **//
@@ -892,7 +884,7 @@ var experiment_blocks = [];
 experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
-experiment_blocks.push(getGender);
+experiment_blocks.push(trial);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
