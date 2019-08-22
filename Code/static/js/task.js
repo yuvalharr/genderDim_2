@@ -42,20 +42,6 @@ var gender = {
   }
 }
 
-var gender = {
-  type: 'image-button-response',
-  stimulus: '../static/images/Nickel.png',
-  choices: ['Male', 'Female'],
-  prompt: "<p>What is your gender?</p>",
-  on_finish: function(data){
-    if(data.button_pressed == 0){
-      condition = 0;
-    } else {
-      condition = 1;
-    }
-  }
-}
-
 
 /*** Enter fullscreen ***/
 var fullscreen = {
@@ -907,7 +893,7 @@ var experiment_blocks = [];
 experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
-experiment_blocks.push(trial);
+experiment_blocks.push(gender);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
