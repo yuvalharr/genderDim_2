@@ -42,10 +42,12 @@ var askGender = {
   }
 }
 
-var form_trial = {
-  type: 'survey-html-form',
-  preamble: '<p> Please enter your Prolific ID</p>',
-  html: '<input name="first" type="text" />'
+var survey_trial = {
+  type: 'survey-text',
+  questions: [
+    {prompt: "Please enter your Prolific ID", rows: 1, columns: 50},
+  ],
+  on_finish: uniqueid = data.responses
 };
 
 /*** Enter fullscreen ***/
@@ -899,7 +901,7 @@ experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
 experiment_blocks.push(askGender);
-experiment_blocks.push(form_trial);
+experiment_blocks.push(survey_trial);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
