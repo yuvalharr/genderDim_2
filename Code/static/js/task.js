@@ -42,20 +42,11 @@ var askGender = {
   }
 }
 
-// var trial = {
-  // type: 'image-button-response',
-  // stimulus: '../static/images/Nickel.png',
-  // choices: ['Male', 'Female'],
-  // prompt: "<p>What is your gender?</p>",
-  // on_finish: function(data){
-    // if(data.button_pressed == 0){
-      // condition = 0;
-    // } else {
-      // condition = 1;
-    // }
-  // }
-// }
-
+var form_trial = {
+  type: 'survey-html-form',
+  preamble: '<p> Please enter your Prolific ID</p>',
+  html: '<input name="first" type="text" />'
+};
 
 /*** Enter fullscreen ***/
 var fullscreen = {
@@ -908,6 +899,7 @@ experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
 experiment_blocks.push(askGender);
+experiment_blocks.push(form_trial);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
