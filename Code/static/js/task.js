@@ -25,7 +25,7 @@ var ITI = 1000,
 
 /*** Male / Female condition ***/
 // Now comes from Psiturk
- var condition = Math.round(Math.random()); // 0 is male, 1 is female. Resolved here now, later from Psiturk or prolific
+ var condition = []; // 0 is male, 1 is female. Resolved here now, later from Psiturk or prolific
  var uniqueid = jsPsych.randomization.randomID(15);
 
 
@@ -36,9 +36,9 @@ var trial = {
   prompt: "<p>What is your gender?</p>",
   on_finish: function(data){
     if(data.button_pressed == 0){
-      data.correct = true;
+      condition = 0;
     } else {
-      data.correct = false;
+      condition = 1;
     }
   }
 }
