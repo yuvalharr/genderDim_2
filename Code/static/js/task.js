@@ -29,6 +29,7 @@ var ITI = 1000,
  var uniqueid = jsPsych.randomization.randomID(15);
 
 var trial = {
+	stimulus: '../static/images/Nickel.png',
     type: 'image-button-response',
     choices: ['Happy', 'Sad'],
     prompt: "<p>Is this person happy or sad?</p>"
