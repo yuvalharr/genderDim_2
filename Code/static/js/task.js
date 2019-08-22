@@ -28,29 +28,21 @@ var ITI = 1000,
  var condition = Math.round(Math.random()); // 0 is male, 1 is female. Resolved here now, later from Psiturk or prolific
  var uniqueid = jsPsych.randomization.randomID(15);
 
+
 var trial = {
-	stimulus: '../static/images/Nickel.png',
-    type: 'image-button-response',
-    choices: ['Male', 'Female'],
-    prompt: "<p>What is your gender?</p>"
-};
-
-var whatGender = if(jsPsych.data.get().values()[4].button_pressed == 0){
-    console.log('male!');
-	condition = 0;
-} else {
-    console.log('female!');
-	condition = 1;
-};
-
-// was response female(0) or male(1)?
-if(jsPsych.data.get().values()[4].button_pressed == 0){
-    console.log('male!');
-	condition = 0;
-} else {
-    console.log('female!');
-	condition = 1;
+  type: 'image-button-response',
+  stimulus: '../static/images/Nickel.png',
+  choices['Male', 'Female'],
+  prompt: "<p>What is your gender?</p>",
+  on_finish: function(data){
+    if(data.button_pressed == 0){
+      data.correct = true;
+    } else {
+      data.correct = false;
+    }
+  }
 }
+
 
 /*** Enter fullscreen ***/
 var fullscreen = {
@@ -903,7 +895,6 @@ experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
 experiment_blocks.push(trial);
-experiment_blocks.push(whatGender);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
