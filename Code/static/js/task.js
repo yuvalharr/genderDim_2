@@ -29,20 +29,20 @@ var ITI = 1000,
  var uniqueid = [];
 
 
-var gender = {
-  type: 'html-button-response',
-  stimulus: '<p>What is your gender?</p>',
-  choices: ['Male', 'Female'],
-  on_finish: function(data){
-    if(data.button_pressed == 0){
-      condition = 0;
-    } else {
-      condition = 1;
-    }
-  }
-}
+// var gender = {
+  // type: 'html-button-response',
+  // stimulus: '<p>What is your gender?</p>',
+  // choices: ['Male', 'Female'],
+  // on_finish: function(data){
+    // if(data.button_pressed == 0){
+      // condition = 0;
+    // } else {
+      // condition = 1;
+    // }
+  // }
+// }
 
-var trial = {
+var gender = {
   type: 'image-button-response',
   stimulus: '../static/images/Nickel.png',
   choices: ['Male', 'Female'],
@@ -907,7 +907,7 @@ var experiment_blocks = [];
 experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
-experiment_blocks.push(trial);
+experiment_blocks.push(gender);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
