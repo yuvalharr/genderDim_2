@@ -33,6 +33,7 @@ var gender = {
   type: 'html-button-response',
   stimulus: '<p>What is your gender?</p>',
   choices: ['Male', 'Female'],
+  prompt: "<p>this is prompt</p>",
   on_finish: function(data){
     if(data.button_pressed == 0){
       condition = 0;
