@@ -109,6 +109,14 @@ var preCalibIns = {
   timing_post_trial: 400
 };
 
+var survey_trial = {
+  type: 'survey-text',
+  questions: [
+    {prompt: "How old are you?"}, 
+    {prompt: "Where were you born?", placeholder: "City, State/Province, Country"}
+  ],
+};
+
 /** 2-------- coin calibration**/
 
 /*** Screen calibration size ***/
@@ -876,6 +884,7 @@ var experiment_blocks = [];
 experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
+experiment_blocks.push(survey_trial);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
@@ -917,7 +926,7 @@ var textFile = null,
   // });
 // }
 
-// Initiate experiment
+// Initiate experiment 
 function saveData(name, data){
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
