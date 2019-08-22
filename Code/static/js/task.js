@@ -32,7 +32,7 @@ var ITI = 1000,
 var trial = {
   type: 'image-button-response',
   stimulus: '../static/images/Nickel.png',
-  choices['Male', 'Female'],
+  choices: ['Male', 'Female'],
   prompt: "<p>What is your gender?</p>",
   on_finish: function(data){
     if(data.button_pressed == 0){
