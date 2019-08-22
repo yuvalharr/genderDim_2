@@ -42,7 +42,7 @@ var ITI = 1000,
   // }
 // }
 
-var gender = {
+var trial = {
   type: 'image-button-response',
   stimulus: '../static/images/Nickel.png',
   choices: ['Male', 'Female'],
@@ -907,7 +907,7 @@ var experiment_blocks = [];
 experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
-experiment_blocks.push(gender);
+experiment_blocks.push(trial);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
