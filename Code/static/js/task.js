@@ -109,13 +109,6 @@ var preCalibIns = {
   timing_post_trial: 400
 };
 
-var survey_trial = {
-  type: 'survey-text',
-  questions: [
-    {prompt: "How old are you?"}, 
-    {prompt: "Where were you born?", placeholder: "City, State/Province, Country"}
-  ],
-};
 
 /** 2-------- coin calibration**/
 
@@ -636,6 +629,21 @@ yaniv.abir+mturk@mail.huji.ac.il</p>\
       });
     }
   }
+  
+//*** trying to get unique id from participants themselves ***//
+
+var getGender = [{
+	type: "survey-multi-choice",
+    questions: [{
+        prompt: "What is your gender?",
+        options: ["Male", "Female", "Other"],
+        required: true
+      }]
+   }]
+
+
+
+
 
 
 //** 7---------Debrief **//
@@ -884,7 +892,7 @@ var experiment_blocks = [];
 experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
-experiment_blocks.push(survey_trial);
+experiment_blocks.push(getGender);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
