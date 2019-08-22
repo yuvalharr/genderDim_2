@@ -46,8 +46,8 @@ var survey_trial = {
   type: 'survey-text',
   questions: [
     {prompt: "Please enter your Prolific ID", rows: 1, columns: 50},
-  ],
-  on_finish: uniqueid = data.responses
+  ]
+  //on_finish: uniqueid = data.responses
 };
 
 /*** Enter fullscreen ***/
