@@ -26,10 +26,23 @@ var ITI = 1000,
 /*** Male / Female condition ***/
 // Now comes from Psiturk
  var condition = []; // 0 is male, 1 is female. Resolved here now, later from Psiturk or prolific
- var uniqueid = jsPsych.randomization.randomID(15);
+ var uniqueid = [];
 
 
-var trial = {
+var gender = {
+  type: 'html-button-response',
+  stimulus: '<p>What is your gender?</p>',
+  choices: ['Male', 'Female'],
+  on_finish: function(data){
+    if(data.button_pressed == 0){
+      condition = 0;
+    } else {
+      condition = 1;
+    }
+  }
+}
+
+var gender = {
   type: 'image-button-response',
   stimulus: '../static/images/Nickel.png',
   choices: ['Male', 'Female'],
