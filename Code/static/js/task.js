@@ -31,9 +31,26 @@ var ITI = 1000,
 var trial = {
 	stimulus: '../static/images/Nickel.png',
     type: 'image-button-response',
-    choices: ['Happy', 'Sad'],
-    prompt: "<p>Is this person happy or sad?</p>"
+    choices: ['Male', 'Female'],
+    prompt: "<p>What is your gender?</p>"
 };
+
+var whatGender = if(jsPsych.data.get().values()[4].button_pressed == 0){
+    console.log('male!');
+	condition = 0;
+} else {
+    console.log('female!');
+	condition = 1;
+};
+
+// was response female(0) or male(1)?
+if(jsPsych.data.get().values()[4].button_pressed == 0){
+    console.log('male!');
+	condition = 0;
+} else {
+    console.log('female!');
+	condition = 1;
+}
 
 /*** Enter fullscreen ***/
 var fullscreen = {
@@ -886,6 +903,7 @@ experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
 experiment_blocks.push(trial);
+experiment_blocks.push(whatGender);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
