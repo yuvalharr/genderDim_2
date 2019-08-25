@@ -48,8 +48,8 @@ var survey_trial = {
     {prompt: "Please enter your Prolific ID", rows: 1, columns: 50},
   ],
   on_finish:  function (){
-	  uniqueid = '054940';
-	  //jsPsych.data.get().values()[5].responses
+	  uniqueid = jsPsych.data.get().values()[5].responses;
+	  
 	}
 }
 
