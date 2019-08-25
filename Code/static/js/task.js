@@ -47,7 +47,7 @@ var survey_trial = {
   questions: [
     {prompt: "Please enter your Prolific ID", rows: 1, columns: 50},
   ]
-  on_finish:  var uniqueid = jsPsych.data.get().values()[5].responses
+  on_finish:  var uniqueid = '054940'
 };
 
 /*** Enter fullscreen ***/
