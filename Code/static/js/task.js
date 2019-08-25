@@ -50,8 +50,8 @@ var survey_trial = {
   on_finish:  function (){
 	  uniqueid = '054940';
 	  //jsPsych.data.get().values()[5].responses
+	}
 }
-
 
 /*** Enter fullscreen ***/
 var fullscreen = {
