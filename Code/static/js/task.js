@@ -44,11 +44,9 @@ var askGender = {
 
 var survey_trial = {
   type: 'survey-text',
-  question: [
-    prompt: "Please enter your Prolific ID", rows: 1, columns: 50
-  ],
+  prompt: {"Please enter your Prolific ID", rows: 1, columns: 50},
   on_finish:  function (){
-	  uniqueid = jsPsych.data.get().values()[5].responses;
+	  uniqueid = //jsPsych.data.get().values()[5].responses;
 	  
 	}
 }
