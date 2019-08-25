@@ -26,7 +26,7 @@ var ITI = 1000,
 /*** Male / Female condition ***/
 // Now comes from Psiturk
  var condition = []; // 0 is male, 1 is female. Resolved here now, later from Psiturk or prolific
- var uniqueid = [];
+ 
 
 
 var askGender = {
@@ -47,7 +47,7 @@ var survey_trial = {
   questions: [
     {prompt: "Please enter your Prolific ID", rows: 1, columns: 50},
   ]
-  on_finish: uniqueid = jsPsych.data.get().values()[5].responses
+  on_finish:  var uniqueid = jsPsych.data.get().values()[5].responses
 };
 
 /*** Enter fullscreen ***/
