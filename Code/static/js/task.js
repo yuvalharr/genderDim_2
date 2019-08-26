@@ -26,7 +26,6 @@ var ITI = 1000,
 /*** Gender / unique ID / condition  ***/
 
 var condition = Math.round(Math.random());; // 0 for male stimuli, 1 for female stimuli
-var uniqueid =[];
 var participantsGender =[] // M for male participant, F for female participant
 
 var askID = {
@@ -35,7 +34,7 @@ var askID = {
     {prompt: "Please enter your Prolific ID", rows: 1, columns: 50},
   ],
   on_finish:  function (){
-	  uniqueid = jsPsych.data.get().values()[3].responses;
+	  var uniqueid = jsPsych.data.get().values()[3].responses;
 	  
 	}
 }
