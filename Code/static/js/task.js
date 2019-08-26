@@ -945,7 +945,7 @@ var textFile = null,
   // });
 // }
 
-jsPsych.data.addProperties({subject: 1, condition: 'control'});
+jsPsych.data.addProperties({subject: 1, condition: 'control'});     //////*****remember to add to linux server*************************//////
 
 // Initiate experiment 
 function saveData(name, data){
