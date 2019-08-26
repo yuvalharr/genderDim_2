@@ -23,11 +23,21 @@ var ITI = 1000,
   sProblemCrit = 8,
   bProblemCrit = 2;
 
-/*** Male / Female condition ***/
-// Now comes from Psiturk
- var condition = []; // 0 is male, 1 is female. Resolved here now, later from Psiturk or prolific
+/*** Gender / unique ID  conditions ***/
+
+ var condition = [];
  var uniqueid =[];
 
+var askID = {
+  type: 'survey-text',
+  questions: [
+    {prompt: "Please enter your Prolific ID", rows: 1, columns: 50},
+  ],
+  on_finish:  function (){
+	  uniqueid = jsPsych.data.get().values()[5].responses;
+	  
+	}
+}
 
 var askGender = {
   type: 'html-button-response',
@@ -42,16 +52,7 @@ var askGender = {
   }
 }
 
-var survey_trial = {
-  type: 'survey-text',
-  questions: [
-    {prompt: "Please enter your Prolific ID", rows: 1, columns: 50},
-  ],
-  on_finish:  function (){
-	  uniqueid = jsPsych.data.get().values()[5].responses;
-	  
-	}
-}
+
 
 /*** Enter fullscreen ***/
 var fullscreen = {
@@ -271,27 +272,27 @@ var instruction_text = [{
     stimulus: ["<p>We will now continue to the main task.</p>\
     <p align='center'><i>Press the space bar to continue.</i></p>"],
     choices: [32]
-  }//,
-  // {
-    // stimulus: ["<div class = 'center'><p>You will be presented with rapidly \
-      // changing patterns of rectangles. Through these rectangles, " +
-      // gender +
-      // " faces will appear. Your task will be to indicate the location of \
-      // the faces, or any part of them, as soon as they appear.</p>\
-      // <p align='center'><i>Press the space bar to continue.</i></p></div>"
-    // ],
-    // choices: [32]
-  // },
-  // {
-    // stimulus: ["<div class = 'center'><p>If a " +
-      // person + "'s face appeared in the right half \
-      // of the screen, press the right key. If a " +
-      // person + "'s face appeared in the left half \
-      // of the screen, press the left key.</p>\
-      // <p align='center'><i>Press the space bar to continue.</i></p></div>"
-    // ],
-    // choices: [32]
-  // },
+  },
+  {
+    stimulus: ["<div class = 'center'><p>You will be presented with rapidly \
+      changing patterns of rectangles. Through these rectangles, " +
+      gender +
+      " faces will appear. Your task will be to indicate the location of \
+      the faces, or any part of them, as soon as they appear.</p>\
+      <p align='center'><i>Press the space bar to continue.</i></p></div>"
+    ],
+    choices: [32]
+  },
+  {
+    stimulus: ["<div class = 'center'><p>If a " +
+      person + "'s face appeared in the right half \
+      of the screen, press the right key. If a " +
+      person + "'s face appeared in the left half \
+      of the screen, press the left key.</p>\
+      <p align='center'><i>Press the space bar to continue.</i></p></div>"
+    ],
+    choices: [32]
+  } //,
   // {
     // stimulus: ["<div class = 'center'><p>Please perform this task as accurately \
       // and quickly as you can.</p>\
