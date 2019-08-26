@@ -23,10 +23,11 @@ var ITI = 1000,
   sProblemCrit = 8,
   bProblemCrit = 2;
 
-/*** Gender / unique ID  conditions ***/
+/*** Gender / unique ID / condition  ***/
 
- var condition = [];
+ var condition = Math.round(Math.random());; // 0 for male stimuli, 1 for female stimuli
  var uniqueid =[];
+ var participantsGender =[] // 0 for male participant, 1 for female participant
 
 var askID = {
   type: 'survey-text',
@@ -45,9 +46,9 @@ var askGender = {
   choices: ['Male', 'Female'],
   on_finish: function(data){
     if(data.button_pressed == 0){
-      condition = 0;
+      participantsGender = 0;
     } else {
-      condition = 1;
+      participantsGender = 1;
     }
   }
 }
