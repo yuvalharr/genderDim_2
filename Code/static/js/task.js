@@ -960,7 +960,7 @@ jsPsych.init({
   timeline: experiment_blocks,
   fullscreen: true,
    on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); 
-   jsPsych.data.addProperties({uniqueid: uniqueid, condition: condition});     //////*****remember to add to linux server*************************//////
+   jsPsych.data.addProperties({uniqueid: uniqueid, condition: condition, participantsGender: participantsGender});     //////*****remember to add to linux server*************************//////
 },
   // on_data_update: function(data) {
   //  psiturk.recordTrialData(data);
