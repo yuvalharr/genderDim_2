@@ -26,6 +26,7 @@ var ITI = 1000,
 /*** Gender / unique ID / condition  ***/
 
 var condition = Math.round(Math.random());; // 0 for male stimuli, 1 for female stimuli
+var uniqueid =[];
 var participantsGender =[] // M for male participant, F for female participant
 
 var askID = {
@@ -34,7 +35,7 @@ var askID = {
     {prompt: "Please enter your Prolific ID", rows: 1, columns: 50},
   ],
   on_finish:  function (){
-	  var uniqueid = jsPsych.data.get().values()[3].responses;
+	  uniqueid = jsPsych.data.get().values()[3].responses;
 	  
 	}
 }
@@ -356,11 +357,8 @@ for (i = 0; i < train_repetitions; i++) {
       fade_out_time: fade_out_time,
       fade_in_time: fade_in_time,
       fade_out_length: fade_out_length,
-      stimulus_alpha: train_alpha,
-	  uniqueid: uniqueid,
-	  participantsGender: participantsGender,
-	  condition: condition		
-    },
+      stimulus_alpha: train_alpha
+	},
     timing_response: trialLength,
     fade_out_time: fade_out_time,
     fade_in_time: fade_in_time,
@@ -497,11 +495,8 @@ for (i = 0; i < repetitions; i++) { // Create a list of trials, repeating the ex
         fade_in_time: fade_in_time,
         fade_out_time: fade_out_time,
         fade_out_length: fade_out_length,
-        trial: (i * exp_num_faces) + ii + 1, // set trial number in data (example: 301,302...) *yuval
-		uniqueid: uniqueid,
-		participantsGender: participantsGender,
-		condtition: condition
-      },
+        trial: (i * exp_num_faces) + ii + 1 // set trial number in data (example: 301,302...) *yuval
+	},
       stimulus_alpha: stimAlphas,
       timing_post_trial: 100,
       within_ITI: ITI - 100,
@@ -616,10 +611,8 @@ var test_animation = {
       within_ITI: ITI - 100,
       fade_in_time: fade_in_time,
       fade_out_time: fade_out_time,
-      fade_out_length: fade_out_length,
-	  uniqueid: uniqueid,
-	  participantsGender: participantsGender
-    },
+      fade_out_length: fade_out_length
+	},
     stimulus_alpha: stimAlphas,
     timing_post_trial: 100,
     within_ITI: ITI - 100,
@@ -951,6 +944,8 @@ var textFile = null,
     // document.body.removeChild(link);
   // });
 // }
+
+jsPsych.data.addProperties({subject: 1, condition: 'control'});
 
 // Initiate experiment 
 function saveData(name, data){
