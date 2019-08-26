@@ -25,9 +25,9 @@ var ITI = 1000,
 
 /*** Gender / unique ID / condition  ***/
 
- var condition = Math.round(Math.random());; // 0 for male stimuli, 1 for female stimuli
- var uniqueid =[];
- var participantsGender =[] // M for male participant, F for female participant
+var condition = Math.round(Math.random());; // 0 for male stimuli, 1 for female stimuli
+var uniqueid =[];
+var participantsGender =[] // M for male participant, F for female participant
 
 var askID = {
   type: 'survey-text',
@@ -359,7 +359,7 @@ for (i = 0; i < train_repetitions; i++) {
       fade_out_length: fade_out_length,
       stimulus_alpha: train_alpha,
 	  uniqueid: uniqueid,
-	  gender: participantsGender,
+	  participantsGender: participantsGender,
 	  condition: condition		
     },
     timing_response: trialLength,
@@ -909,9 +909,9 @@ var debrief = [{
 var experiment_blocks = [];
 experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
-experiment_blocks.push(fullscreen);
 experiment_blocks.push(askID);
 experiment_blocks.push(askGender);
+experiment_blocks.push(fullscreen);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
