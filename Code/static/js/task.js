@@ -358,7 +358,9 @@ for (i = 0; i < train_repetitions; i++) {
       fade_in_time: fade_in_time,
       fade_out_length: fade_out_length,
       stimulus_alpha: train_alpha,
-	  uniqueid: uniqueid	  
+	  uniqueid: uniqueid,
+	  gender: participantsGender,
+	  condition: condition		
     },
     timing_response: trialLength,
     fade_out_time: fade_out_time,
@@ -497,7 +499,9 @@ for (i = 0; i < repetitions; i++) { // Create a list of trials, repeating the ex
         fade_out_time: fade_out_time,
         fade_out_length: fade_out_length,
         trial: (i * exp_num_faces) + ii + 1, // set trial number in data (example: 301,302...) *yuval
-		uniqueid: uniqueid
+		uniqueid: uniqueid,
+		participantsGender: participantsGender,
+		condtition: condition
       },
       stimulus_alpha: stimAlphas,
       timing_post_trial: 100,
@@ -615,6 +619,7 @@ var test_animation = {
       fade_out_time: fade_out_time,
       fade_out_length: fade_out_length,
 	  uniqueid: uniqueid
+	  participantsGender: participantsGender
     },
     stimulus_alpha: stimAlphas,
     timing_post_trial: 100,
