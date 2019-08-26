@@ -945,7 +945,6 @@ var textFile = null,
   // });
 // }
 
-jsPsych.data.addProperties({subject: 1, condition: 'control'});     //////*****remember to add to linux server*************************//////
 
 // Initiate experiment 
 function saveData(name, data){
@@ -954,6 +953,7 @@ function saveData(name, data){
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({filename: name, filedata: data}));
 }
+jsPsych.data.addProperties({uniqueid: uniqueid, condition: condition});     //////*****remember to add to linux server*************************//////
 
 var exp_start_time = 0;
 var d = new Date();
