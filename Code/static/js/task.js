@@ -953,14 +953,15 @@ function saveData(name, data){
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({filename: name, filedata: data}));
 }
-jsPsych.data.addProperties({uniqueid: uniqueid, condition: condition});     //////*****remember to add to linux server*************************//////
 
 var exp_start_time = 0;
 var d = new Date();
 jsPsych.init({
   timeline: experiment_blocks,
   fullscreen: true,
-   on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); },
+   on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); 
+   jsPsych.data.addProperties({uniqueid: uniqueid, condition: condition});     //////*****remember to add to linux server*************************//////
+},
   // on_data_update: function(data) {
   //  psiturk.recordTrialData(data);
   // },
