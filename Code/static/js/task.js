@@ -904,8 +904,8 @@ var experiment_blocks = [];
 experiment_blocks.push(test_animation);
 experiment_blocks.push(poor_animation);
 experiment_blocks.push(fullscreen);
+experiment_blocks.push(askID);
 experiment_blocks.push(askGender);
-experiment_blocks.push(survey_trial);
 experiment_blocks.push(preCalibIns)
 experiment_blocks.push(makeSureLoop);
 experiment_blocks.push(instructions);
