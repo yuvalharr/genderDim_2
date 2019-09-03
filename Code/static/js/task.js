@@ -35,8 +35,7 @@ var askID = {
     {prompt: "Please enter your Prolific ID", rows: 1, columns: 50},
   ],
   on_finish:  function (){
-	  uniqueid = jsPsych.data.get().values()[3].responses;
-	  
+	  uniqueid = jsPsych.data.get().values()[3].responses.substr (7, jsPsych.data.get().values()[3].responses.length - 9) //substring only the unique ID without "Q0:.."
 	}
 }
 
@@ -73,7 +72,7 @@ var images = ['../static/images/Nickel.png',
   '../static/images/coin_demo.jpg'
 ];
 
-// Initiate psiturk
+// // Initiate psiturk
 // 
 // var psiturk = new PsiTurk(uniqueId, adServerLoc, mode);
 
@@ -409,20 +408,19 @@ var performanceMSG_practice = {
   <p>It seems that you are not performing the task as instructed.</p>\
   <p>Please return this HIT.</p>\
   <p>If you feel that this is a mistake, please email \
-  yaniv.abir+mturk@mail.huji.ac.il</p>\
+  yuval.harris@mail.huji.ac.il</p>\
   <p>Press the space bar to continue.</p></div>"
     }],
     choices: [32],
 
     //** needed eventualy **//
     on_finish: function() {
-      psiturk.saveData({
-        success: function() {
-          jsPsych.endExperiment('The experiment has been aborted. Please return HIT.');
-        }
-      });
-    },
-  }
+			    jsPsych.data.addProperties({uniqueid: uniqueid, condition: condition, participantsGender: participantsGender});
+				saveData("experiment_data- " + uniqueid, jsPsych.data.get().csv());
+				saveData("interaction_data- " + uniqueid, jsPsych.data.getInteractionData().csv());
+				setTimeout(function(){jsPsych.endExperiment('The experiment has been aborted');}, 600);
+			}
+	}
 
 
 
@@ -640,18 +638,17 @@ var test_animation = {
 <p><b>Please return this HIT</b>.</p>\
 <p>We'll be glad to see you participating in future HITs.</p>\
 <p>For any questions, please email \
-yaniv.abir+mturk@mail.huji.ac.il</p>\
+yuval.harris@mail.huji.ac.il</p>\
 <p>Press the space bar to continue.</p></div>"
     }],
     choices: [32],
     //** needed eventualy **//
     on_finish: function() {
-      psiturk.saveData({
-        success: function() {
-          jsPsych.endExperiment('The experiment has been aborted. <b>Please return HIT.</b>');
-        }
-      });
-    }
+			 jsPsych.data.addProperties({uniqueid: uniqueid, condition: condition, participantsGender: participantsGender});
+			 saveData("experiment_data- " + uniqueid, jsPsych.data.get().csv());
+			 saveData("interaction_data- " + uniqueid, jsPsych.data.getInteractionData().csv());
+			 setTimeout(function(){jsPsych.endExperiment('The experiment has been aborted');}, 3000);
+			}
   }
   
 
@@ -889,7 +886,7 @@ var debrief = [{
     In this study we were interested in examining reaction-times and \
     precision in a dynamic environment.</p>\
     <p>Once you press the space bar, your results will be uploaded to the \
-    server, and the HIT will complete. <b>This may take several minutes - do not \
+    server, and the HIT will complete. <b>This may take several minutes - Please wait for a confirmation message and do not \
     refresh or close your browser during this time.</b></p>\
     <p>Press the space bar to complete this HIT.</p></div>',
     choices: [32]
@@ -913,23 +910,23 @@ experiment_blocks.push(bRMS_block);
 experiment_blocks = experiment_blocks.concat(debrief);
 
 // Save data to file functions
-var textFile = null,
-  makeTextFile = function(text) {
-    var data = new Blob([text], {
-      type: 'text/plain'
-    });
+// var textFile = null,
+  // makeTextFile = function(text) {
+    // var data = new Blob([text], {
+      // type: 'text/plain'
+    // });
 
-    // If we are replacing a previously generated file we need to
-    // manually revoke the object URL to avoid memory leaks.
-    if (textFile !== null) {
-      window.URL.revokeObjectURL(textFile);
-    }
+  // // If we are replacing a previously generated file we need to
+    // // manually revoke the object URL to avoid memory leaks.
+    // if (textFile !== null) {
+      // window.URL.revokeObjectURL(textFile);
+    // }
 
-    textFile = window.URL.createObjectURL(data);
+    // textFile = window.URL.createObjectURL(data);
 
-    // returns a URL you can use as a href
-    return textFile;
-  };
+   // returns a URL you can use as a href
+    // return textFile;
+  // };
 
 // var saveData = function(data, filename) {
   // var link = document.createElement('a');
@@ -959,14 +956,17 @@ var d = new Date();
 jsPsych.init({
   timeline: experiment_blocks,
   fullscreen: true,
-   on_finish: function(){ saveData("experiment_data", jsPsych.data.get().csv()); 
-   jsPsych.data.addProperties({uniqueid: uniqueid, condition: condition, participantsGender: participantsGender});     //////*****remember to add to linux server*************************//////
-},
+  on_finish: function() { 
+			 jsPsych.data.addProperties({uniqueid: uniqueid, condition: condition, participantsGender: participantsGender});
+			 saveData("experiment_data- " + uniqueid, jsPsych.data.get().csv());
+			 saveData("interaction_data- " + uniqueid, jsPsych.data.getInteractionData().csv());
+			 setTimeout(function(){ alert("You may close the window now. Thank you for your participation!"); }, 20000); //time to let the files save (in ms)
+			 },
   // on_data_update: function(data) {
   //  psiturk.recordTrialData(data);
   // },
   preload_images: images,
-   on_trial_start: function() {
+  on_trial_start: function() {
      // Record start time of bRMS block
      if (exp_start_time == 0 && jsPsych.currentTrial().type == 'bRMS') {
        exp_start_time = d.getTime();
